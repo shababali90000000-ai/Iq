@@ -1,0 +1,3000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Mind Emerald — Intelligence Challenge</title>
+
+<style>
+
+:root{
+    --emerald:#08c98b;
+    --emerald-dark:#075b43;
+    --emerald-deep:#032f24;
+    --gold:#e9c46a;
+    --gold-light:#fff1b5;
+    --white:#fffef9;
+    --cream:#f8f2df;
+    --text:#10251f;
+    --muted:#6b7c75;
+    --border:#dfeae5;
+    --danger:#c94c4c;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    font-family:
+        Inter,
+        Arial,
+        Helvetica,
+        sans-serif;
+    color:var(--text);
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(8,201,139,.20),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 90% 90%,
+            rgba(233,196,106,.24),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #fbfff9 0%,
+            #f8f2df 50%,
+            #ffffff 100%
+        );
+    overflow-x:hidden;
+}
+
+/* BACKGROUND GRID */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-2;
+    pointer-events:none;
+    opacity:.28;
+    background-image:
+        linear-gradient(
+            rgba(8,201,139,.07) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(8,201,139,.07) 1px,
+            transparent 1px
+        );
+    background-size:35px 35px;
+}
+
+/* BACKGROUND GLOW */
+
+body::after{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    left:-250px;
+    bottom:-250px;
+    z-index:-1;
+    pointer-events:none;
+    background:
+        radial-gradient(
+            circle,
+            rgba(8,201,139,.12),
+            transparent 70%
+        );
+}
+
+/* MAIN APP */
+
+.app{
+    width:min(1120px,94vw);
+    margin:auto;
+    padding:22px 0 45px;
+}
+
+/* TOP BAR */
+
+.topbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo{
+    width:50px;
+    height:50px;
+    border-radius:16px;
+    display:grid;
+    place-items:center;
+    font-size:26px;
+    background:
+        linear-gradient(
+            145deg,
+            #063d2f,
+            #0bd998
+        );
+    color:#fff;
+    box-shadow:
+        0 12px 30px rgba(8,201,139,.25),
+        inset 0 1px rgba(255,255,255,.4);
+}
+
+.brand h1{
+    font-size:18px;
+    letter-spacing:.13em;
+    margin-bottom:3px;
+}
+
+.brand small{
+    color:var(--muted);
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.08em;
+}
+
+/* SOUND BUTTON */
+
+.sound-btn{
+    border:1px solid rgba(8,201,139,.25);
+    background:rgba(255,255,255,.8);
+    color:var(--text);
+    padding:10px 14px;
+    border-radius:13px;
+    cursor:pointer;
+    font-weight:800;
+    transition:.2s;
+}
+
+.sound-btn:hover{
+    transform:translateY(-2px);
+    border-color:var(--emerald);
+}
+
+/* SCREENS */
+
+.screen{
+    display:none;
+}
+
+.screen.active{
+    display:block;
+}
+
+/* GLASS CARD */
+
+.glass{
+    background:rgba(255,255,255,.78);
+    border:1px solid rgba(255,255,255,.95);
+    border-radius:28px;
+    box-shadow:
+        0 25px 80px rgba(16,37,31,.10),
+        0 2px 10px rgba(16,37,31,.05);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+}
+
+/* START HERO */
+
+.hero{
+    position:relative;
+    overflow:hidden;
+    padding:55px 35px;
+    text-align:center;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:280px;
+    height:280px;
+    right:-120px;
+    top:-130px;
+    border-radius:50%;
+    background:
+        radial-gradient(
+            circle,
+            rgba(233,196,106,.45),
+            transparent 68%
+        );
+    pointer-events:none;
+}
+
+/* BRAIN */
+
+.brain{
+    width:115px;
+    height:115px;
+    margin:0 auto 20px;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    font-size:58px;
+    background:
+        radial-gradient(
+            circle at 35% 25%,
+            #fff8ca,
+            #e9c46a 42%,
+            #0a7655 45%,
+            #063d30 100%
+        );
+    box-shadow:
+        0 0 0 9px rgba(233,196,106,.12),
+        0 22px 60px rgba(0,120,83,.24);
+    animation:brainFloat 3s ease-in-out infinite;
+}
+
+@keyframes brainFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+
+}
+
+/* CATEGORY */
+
+.category{
+    color:#087c59;
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+}
+
+/* HERO HEADING */
+
+.hero h2{
+    margin:8px 0 15px;
+    font-size:clamp(31px,6vw,58px);
+    line-height:1.08;
+    letter-spacing:-.045em;
+}
+
+.hero h2 span{
+    background:
+        linear-gradient(
+            90deg,
+            #087c59,
+            #d09d27
+        );
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.hero-description{
+    max-width:700px;
+    margin:0 auto 27px;
+    color:#566a62;
+    line-height:1.75;
+    font-size:15px;
+}
+
+/* INFO CARDS */
+
+.info-grid{
+    max-width:760px;
+    margin:0 auto 27px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+}
+
+.info-card{
+    padding:17px 12px;
+    border-radius:18px;
+    background:
+        linear-gradient(
+            145deg,
+            #fffdf2,
+            #fff5d5
+        );
+    border:1px solid #f0dfad;
+}
+
+.info-card strong{
+    display:block;
+    font-size:21px;
+    color:#143e31;
+    margin-bottom:3px;
+}
+
+.info-card span{
+    color:#77847f;
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:.08em;
+}
+
+/* BUTTON */
+
+.btn{
+    border:0;
+    border-radius:16px;
+    padding:14px 23px;
+    font-size:14px;
+    font-weight:900;
+    cursor:pointer;
+    color:white;
+    background:
+        linear-gradient(
+            135deg,
+            #087e5a,
+            #05c88b
+        );
+    box-shadow:
+        0 13px 30px rgba(8,201,139,.25);
+    transition:
+        transform .2s,
+        box-shadow .2s,
+        opacity .2s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+    box-shadow:
+        0 18px 35px rgba(8,201,139,.30);
+}
+
+.btn:active{
+    transform:scale(.98);
+}
+
+.btn.gold{
+    color:#493a16;
+    background:
+        linear-gradient(
+            135deg,
+            #d7ac3f,
+            #fff0a8
+        );
+}
+
+.btn.secondary{
+    color:#164437;
+    background:#fff;
+    border:1px solid var(--border);
+    box-shadow:none;
+}
+
+.btn:disabled{
+    opacity:.5;
+    cursor:not-allowed;
+    transform:none;
+}
+
+/* NOTICE */
+
+.notice{
+    max-width:760px;
+    margin:17px auto 0;
+    padding:13px 15px;
+    border-radius:14px;
+    background:#fff8df;
+    color:#675329;
+    font-size:11px;
+    line-height:1.6;
+}
+
+/* QUIZ HEADER */
+
+.quiz-header{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:15px;
+}
+
+.progress-container{
+    flex:1;
+}
+
+.progress-label{
+    margin-bottom:7px;
+    font-size:12px;
+    font-weight:900;
+    color:var(--muted);
+}
+
+.progress{
+    width:100%;
+    height:9px;
+    overflow:hidden;
+    border-radius:50px;
+    background:#e5eee9;
+}
+
+.progress-bar{
+    height:100%;
+    width:0%;
+    border-radius:50px;
+    background:
+        linear-gradient(
+            90deg,
+            #08a977,
+            #e9c46a
+        );
+    transition:width .3s ease;
+}
+
+/* TIMER */
+
+.timer{
+    min-width:105px;
+    padding:12px;
+    border-radius:15px;
+    text-align:center;
+    color:#fff;
+    background:#0a2d23;
+    border:1px solid #285447;
+    font-weight:900;
+    letter-spacing:.04em;
+}
+
+.timer.warning{
+    background:#7d3e20;
+}
+
+/* QUESTION CARD */
+
+.question-card{
+    padding:30px;
+}
+
+.question-number{
+    color:#087c59;
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+}
+
+.question-text{
+    margin:10px 0 24px;
+    font-size:clamp(20px,3vw,29px);
+    line-height:1.4;
+}
+
+/* OPTIONS */
+
+.options{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.option{
+    position:relative;
+    width:100%;
+    min-height:62px;
+    padding:17px 17px 17px 55px;
+    border-radius:17px;
+    border:1px solid #dce8e2;
+    background:rgba(255,255,255,.9);
+    color:#173a30;
+    font-size:14px;
+    font-weight:750;
+    text-align:left;
+    cursor:pointer;
+    transition:
+        transform .18s,
+        border-color .18s,
+        background .18s,
+        box-shadow .18s;
+}
+
+/*
+    IMPORTANT:
+
+    The selected class means ONLY:
+    "This is the option the student selected."
+
+    It does NOT mean:
+    "This answer is correct."
+
+    Correctness is never checked here.
+*/
+
+.option:hover{
+    transform:translateY(-2px);
+    border-color:#63d9b6;
+    box-shadow:
+        0 9px 25px rgba(8,201,139,.11);
+}
+
+.option.selected{
+    background:#edfff8;
+    border-color:#08b982;
+    box-shadow:
+        0 0 0 3px rgba(8,201,139,.10);
+}
+
+.option-letter{
+    position:absolute;
+    left:14px;
+    top:15px;
+    width:30px;
+    height:30px;
+    display:grid;
+    place-items:center;
+    border-radius:9px;
+    background:#edf7f2;
+    color:#087a58;
+    font-weight:900;
+}
+
+.option.selected .option-letter{
+    background:#08b982;
+    color:#fff;
+}
+
+/* NAVIGATION */
+
+.navigation{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    margin-top:20px;
+}
+
+/* RESULT */
+
+.result-grid{
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    gap:16px;
+}
+
+.result-card{
+    padding:27px;
+}
+
+.result-title{
+    text-align:center;
+}
+
+.result-title h2{
+    margin:6px 0;
+    font-size:34px;
+}
+
+.iq-text{
+    color:#087f5b;
+    font-size:21px;
+    font-weight:900;
+}
+
+/* SCORE RING */
+
+.score-ring{
+    --degree:0deg;
+
+    width:180px;
+    height:180px;
+    margin:20px auto;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    position:relative;
+
+    background:
+        conic-gradient(
+            #08c98b 0deg,
+            #08c98b var(--degree),
+            #e5eee9 var(--degree),
+            #e5eee9 360deg
+        );
+}
+
+.score-ring::after{
+    content:"";
+    position:absolute;
+    inset:13px;
+    border-radius:50%;
+    background:#fffdf8;
+}
+
+.score-content{
+    position:relative;
+    z-index:2;
+    text-align:center;
+}
+
+.score-content strong{
+    display:block;
+    font-size:40px;
+}
+
+.score-content span{
+    color:var(--muted);
+    font-size:10px;
+    font-weight:900;
+}
+
+/* STATS */
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+.stat{
+    padding:16px;
+    border-radius:15px;
+    border:1px solid #e0ebe5;
+    background:#f7fbf8;
+}
+
+.stat strong{
+    display:block;
+    font-size:21px;
+    margin-bottom:3px;
+}
+
+.stat span{
+    color:var(--muted);
+    font-size:10px;
+    font-weight:900;
+}
+
+/* BREAKDOWN */
+
+.breakdown{
+    display:grid;
+    gap:12px;
+    margin-top:18px;
+}
+
+.breakdown-row{
+    display:grid;
+    grid-template-columns:95px 1fr 45px;
+    gap:8px;
+    align-items:center;
+    font-size:11px;
+    font-weight:900;
+}
+
+.breakdown-bar{
+    height:9px;
+    overflow:hidden;
+    border-radius:20px;
+    background:#e5eee9;
+}
+
+.breakdown-fill{
+    height:100%;
+    width:0%;
+    border-radius:20px;
+    background:
+        linear-gradient(
+            90deg,
+            #08b982,
+            #e9c46a
+        );
+}
+
+/* RESULT BUTTON */
+
+.result-button{
+    width:100%;
+    margin-top:18px;
+}
+
+/* FOOTER */
+
+.footer{
+    margin-top:18px;
+    text-align:center;
+    color:#7c8984;
+    font-size:10px;
+}
+
+/* RIPPLE */
+
+.ripple{
+    position:fixed;
+    z-index:9999;
+    pointer-events:none;
+    width:25px;
+    height:25px;
+    border-radius:50%;
+    transform:translate(-50%,-50%);
+    background:
+        radial-gradient(
+            circle,
+            rgba(8,201,139,.25),
+            rgba(8,201,139,0)
+        );
+    animation:rippleAnimation .75s ease-out forwards;
+}
+
+@keyframes rippleAnimation{
+
+    from{
+        width:25px;
+        height:25px;
+        opacity:.8;
+    }
+
+    to{
+        width:250px;
+        height:250px;
+        opacity:0;
+    }
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:700px){
+
+    .app{
+        width:94vw;
+        padding-top:15px;
+    }
+
+    .topbar{
+        align-items:flex-start;
+    }
+
+    .brand h1{
+        font-size:15px;
+    }
+
+    .brand small{
+        font-size:8px;
+    }
+
+    .logo{
+        width:44px;
+        height:44px;
+        font-size:23px;
+    }
+
+    .sound-btn{
+        padding:8px 10px;
+        font-size:11px;
+    }
+
+    .hero{
+        padding:35px 18px;
+        border-radius:23px;
+    }
+
+    .brain{
+        width:95px;
+        height:95px;
+        font-size:48px;
+    }
+
+    .info-grid{
+        grid-template-columns:1fr;
+    }
+
+    .quiz-header{
+        align-items:stretch;
+    }
+
+    .timer{
+        min-width:90px;
+    }
+
+    .question-card{
+        padding:20px;
+    }
+
+    .options{
+        grid-template-columns:1fr;
+    }
+
+    .option{
+        min-height:58px;
+    }
+
+    .result-grid{
+        grid-template-columns:1fr;
+    }
+
+    .result-card{
+        padding:20px;
+    }
+
+    .result-title h2{
+        font-size:29px;
+    }
+
+}
+
+/* EXTRA SMALL DEVICES */
+
+@media(max-width:400px){
+
+    .brand small{
+        display:none;
+    }
+
+    .quiz-header{
+        gap:8px;
+    }
+
+    .timer{
+        min-width:82px;
+        font-size:12px;
+        padding:10px 5px;
+    }
+
+    .question-text{
+        font-size:19px;
+    }
+
+    .navigation .btn{
+        padding:12px 15px;
+        font-size:12px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+    <!-- ==================================================
+         TOP BAR
+    ================================================== -->
+
+    <header class="topbar">
+
+        <div class="brand">
+
+            <div class="logo">
+                🧠
+            </div>
+
+            <div>
+
+                <h1>
+                    MIND EMERALD
+                </h1>
+
+                <small>
+                    VERBAL INTELLIGENCE CHALLENGE
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="sound-btn"
+            id="soundButton"
+            type="button"
+        >
+            🔊 Sound ON
+        </button>
+
+    </header>
+
+
+
+    <!-- ==================================================
+         START SCREEN
+    ================================================== -->
+
+    <main
+        id="startScreen"
+        class="screen active"
+    >
+
+        <section class="hero glass">
+
+            <div class="brain">
+                🧠
+            </div>
+
+
+            <div class="category">
+                COGNITIVE ASSESSMENT • VERBAL REASONING
+            </div>
+
+
+            <h2>
+                Measure Your
+                <span>Thinking Power</span>
+            </h2>
+
+
+            <p class="hero-description">
+
+                Test your verbal reasoning, logical deduction,
+                vocabulary, analogies, sequences and
+                classification skills through a challenging
+                six-option intelligence game.
+
+            </p>
+
+
+            <div class="info-grid">
+
+                <div class="info-card">
+
+                    <strong>
+                        30
+                    </strong>
+
+                    <span>
+                        QUESTIONS
+                    </span>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <strong>
+                        6
+                    </strong>
+
+                    <span>
+                        OPTIONS / QUESTION
+                    </span>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <strong>
+                        25 MIN
+                    </strong>
+
+                    <span>
+                        TIME LIMIT
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="btn gold"
+                id="startButton"
+                type="button"
+            >
+                START INTELLIGENCE TEST →
+            </button>
+
+
+            <div class="notice">
+
+                This is an educational IQ-style game.
+                The final IQ figure is an estimated game score
+                and is not a clinically standardized IQ result.
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ==================================================
+         QUIZ SCREEN
+    ================================================== -->
+
+    <main
+        id="quizScreen"
+        class="screen"
+    >
+
+
+        <div class="quiz-header">
+
+
+            <div class="progress-container">
+
+                <div
+                    class="progress-label"
+                    id="progressLabel"
+                >
+                    Question 1 of 30
+                </div>
+
+
+                <div class="progress">
+
+                    <div
+                        class="progress-bar"
+                        id="progressBar"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="timer"
+                id="timer"
+            >
+                25:00
+            </div>
+
+
+        </div>
+
+
+
+        <section class="question-card glass">
+
+
+            <div
+                class="question-number"
+                id="questionCategory"
+            >
+                VERBAL REASONING
+            </div>
+
+
+            <h2
+                class="question-text"
+                id="questionText"
+            >
+                Question
+            </h2>
+
+
+            <div
+                class="options"
+                id="optionsContainer"
+            ></div>
+
+
+            <div class="navigation">
+
+
+                <button
+                    class="btn secondary"
+                    id="previousButton"
+                    type="button"
+                >
+                    ← Previous
+                </button>
+
+
+                <button
+                    class="btn"
+                    id="nextButton"
+                    type="button"
+                >
+                    Next →
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ==================================================
+         RESULT SCREEN
+    ================================================== -->
+
+    <main
+        id="resultScreen"
+        class="screen"
+    >
+
+
+        <div class="result-grid">
+
+
+            <!-- SCORE CARD -->
+
+            <section class="result-card glass">
+
+
+                <div class="result-title">
+
+                    <div class="category">
+                        ASSESSMENT COMPLETE
+                    </div>
+
+
+                    <h2 id="resultHeading">
+                        Test Complete
+                    </h2>
+
+
+                    <div
+                        class="iq-text"
+                        id="iqResult"
+                    >
+                        Estimated IQ: --
+                    </div>
+
+                </div>
+
+
+
+                <div
+                    class="score-ring"
+                    id="scoreRing"
+                >
+
+                    <div class="score-content">
+
+                        <strong id="accuracyResult">
+                            0%
+                        </strong>
+
+                        <span>
+                            ACCURACY
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stats-grid">
+
+
+                    <div class="stat">
+
+                        <strong id="correctResult">
+                            0 / 30
+                        </strong>
+
+                        <span>
+                            CORRECT ANSWERS
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <strong id="wrongResult">
+                            0
+                        </strong>
+
+                        <span>
+                            INCORRECT
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <strong id="timeResult">
+                            00:00
+                        </strong>
+
+                        <span>
+                            TIME TAKEN
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <strong id="averageResult">
+                            0s
+                        </strong>
+
+                        <span>
+                            AVG / QUESTION
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- PROFILE CARD -->
+
+            <section class="result-card glass">
+
+
+                <div class="category">
+                    COGNITIVE PROFILE
+                </div>
+
+
+                <h3 style="margin-top:8px;">
+                    Performance Breakdown
+                </h3>
+
+
+                <div
+                    class="breakdown"
+                    id="breakdownContainer"
+                ></div>
+
+
+                <div
+                    class="notice"
+                    id="resultMessage"
+                >
+                    Result information will appear here.
+                </div>
+
+
+                <button
+                    class="btn result-button"
+                    id="retakeButton"
+                    type="button"
+                >
+                    RETAKE TEST
+                </button>
+
+
+            </section>
+
+
+        </div>
+
+
+        <div class="footer">
+
+            MIND EMERALD • VERBAL INTELLIGENCE GAME
+
+        </div>
+
+
+    </main>
+
+
+</div>
+
+
+
+<script>
+
+/* ============================================================
+   MIND EMERALD
+   COMPLETE JAVASCRIPT ENGINE
+
+   IMPORTANT:
+   NO ANSWER IS CHECKED DURING THE TEST.
+
+   The correct answer is checked ONLY when finishTest()
+   executes.
+
+============================================================ */
+
+
+/* ============================================================
+   QUESTION DATA
+
+   Format:
+
+   {
+       category: "...",
+       question: "...",
+       options: ["","","","","",""],
+       answer: number
+   }
+
+   answer is the zero-based correct option index.
+============================================================ */
+
+const QUESTIONS = [
+
+    {
+        category:"ANALOGY",
+        question:"BOOK is to READING as FORK is to:",
+        options:[
+            "Writing",
+            "Eating",
+            "Cooking",
+            "Cutting",
+            "Serving",
+            "Washing"
+        ],
+        answer:1
+    },
+
+    {
+        category:"NUMBER LOGIC",
+        question:"What number should come next? 2, 6, 12, 20, 30, ?",
+        options:[
+            "36",
+            "40",
+            "42",
+            "44",
+            "48",
+            "52"
+        ],
+        answer:2
+    },
+
+    {
+        category:"VOCABULARY",
+        question:"Which word is closest in meaning to “METICULOUS”?",
+        options:[
+            "Careless",
+            "Precise",
+            "Rapid",
+            "Doubtful",
+            "Generous",
+            "Noisy"
+        ],
+        answer:1
+    },
+
+    {
+        category:"DEDUCTION",
+        question:"All NEX are RAV. No RAV are TUL. Which statement must be true?",
+        options:[
+            "Some NEX are TUL",
+            "No NEX are TUL",
+            "All TUL are NEX",
+            "Some RAV are NEX",
+            "All RAV are NEX",
+            "No TUL exist"
+        ],
+        answer:1
+    },
+
+    {
+        category:"SEQUENCE",
+        question:"Choose the next pair: AB, DE, GH, JK, ?",
+        options:[
+            "LM",
+            "MN",
+            "NO",
+            "OP",
+            "PQ",
+            "QR"
+        ],
+        answer:1
+    },
+
+    {
+        category:"ANALOGY",
+        question:"FINGER is to HAND as TOE is to:",
+        options:[
+            "Leg",
+            "Foot",
+            "Knee",
+            "Shoe",
+            "Ankle",
+            "Body"
+        ],
+        answer:1
+    },
+
+    {
+        category:"ODD ONE OUT",
+        question:"Which word does NOT belong?",
+        options:[
+            "Triangle",
+            "Square",
+            "Circle",
+            "Rectangle",
+            "Pentagon",
+            "Cube"
+        ],
+        answer:5
+    },
+
+    {
+        category:"LOGIC",
+        question:"If every ZOR is a MIP and some MIPs are LEX, which statement is definitely possible?",
+        options:[
+            "Some ZOR may be LEX",
+            "Every ZOR is LEX",
+            "No MIP is LEX",
+            "Every LEX is ZOR",
+            "No ZOR exists",
+            "Every MIP is ZOR"
+        ],
+        answer:0
+    },
+
+    {
+        category:"VOCABULARY",
+        question:"RELUCTANT most nearly means:",
+        options:[
+            "Eager",
+            "Unwilling",
+            "Certain",
+            "Proud",
+            "Cheerful",
+            "Curious"
+        ],
+        answer:1
+    },
+
+    {
+        category:"LETTER PATTERN",
+        question:"What comes next? AZ, BY, CX, DW, ?",
+        options:[
+            "EV",
+            "FU",
+            "ET",
+            "FV",
+            "EW",
+            "GU"
+        ],
+        answer:0
+    },
+
+    {
+        category:"ANALOGY",
+        question:"CLOCK is to TIME as THERMOMETER is to:",
+        options:[
+            "Heat",
+            "Weather",
+            "Temperature",
+            "Mercury",
+            "Scale",
+            "Pressure"
+        ],
+        answer:2
+    },
+
+    {
+        category:"DEDUCTION",
+        question:"Some artists are teachers. All teachers are readers. What must be true?",
+        options:[
+            "All artists are readers",
+            "Some artists are readers",
+            "No artists are readers",
+            "All readers are teachers",
+            "Some readers are not teachers",
+            "No teachers are artists"
+        ],
+        answer:1
+    },
+
+    {
+        category:"NUMBER LOGIC",
+        question:"If 3 → 12, 4 → 20, 5 → 30, then 7 → ?",
+        options:[
+            "42",
+            "48",
+            "49",
+            "56",
+            "63",
+            "70"
+        ],
+        answer:3
+    },
+
+    {
+        category:"VOCABULARY",
+        question:"Which is the best opposite of SCARCE?",
+        options:[
+            "Rare",
+            "Limited",
+            "Abundant",
+            "Tiny",
+            "Weak",
+            "Simple"
+        ],
+        answer:2
+    },
+
+    {
+        category:"CLASSIFICATION",
+        question:"Which pair has the same relationship as HOT : COLD?",
+        options:[
+            "Fast : Quick",
+            "Big : Large",
+            "Early : Late",
+            "Soft : Smooth",
+            "High : Tall",
+            "Near : Close"
+        ],
+        answer:2
+    },
+
+    {
+        category:"WORD LOGIC",
+        question:"Which option contains a valid word that can be formed from the letters LISTEN?",
+        options:[
+            "Silent",
+            "Enlist",
+            "Tinsel",
+            "Inlets",
+            "All of these",
+            "None"
+        ],
+        answer:4
+    },
+
+    {
+        category:"SEQUENCE",
+        question:"What comes next? 1, 1, 2, 3, 5, 8, ?",
+        options:[
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16"
+        ],
+        answer:2
+    },
+
+    {
+        category:"DEDUCTION",
+        question:"If no BEX are KOR, and all MIV are BEX, then:",
+        options:[
+            "Some MIV are KOR",
+            "No MIV are KOR",
+            "All KOR are MIV",
+            "All BEX are MIV",
+            "Some KOR are BEX",
+            "MIV and KOR are identical"
+        ],
+        answer:1
+    },
+
+    {
+        category:"ANALOGY",
+        question:"PUPPY is to DOG as CALF is to:",
+        options:[
+            "Goat",
+            "Horse",
+            "Cow",
+            "Sheep",
+            "Deer",
+            "Pig"
+        ],
+        answer:2
+    },
+
+    {
+        category:"VOCABULARY",
+        question:"AMBIGUOUS describes something that is:",
+        options:[
+            "Very clear",
+            "Open to more than one interpretation",
+            "Extremely loud",
+            "Already finished",
+            "Impossible",
+            "Highly expensive"
+        ],
+        answer:1
+    },
+
+    {
+        category:"NUMBER LOGIC",
+        question:"A machine makes 5 items in 4 minutes. At the same rate, how many items in 20 minutes?",
+        options:[
+            "20",
+            "24",
+            "25",
+            "30",
+            "40",
+            "45"
+        ],
+        answer:2
+    },
+
+    {
+        category:"ODD ONE OUT",
+        question:"Which does NOT belong with the others?",
+        options:[
+            "January",
+            "March",
+            "May",
+            "July",
+            "September",
+            "Tuesday"
+        ],
+        answer:5
+    },
+
+    {
+        category:"LOGIC",
+        question:"A is taller than B. B is taller than C. Which must be true?",
+        options:[
+            "C is taller than A",
+            "A is taller than C",
+            "A and C are equal",
+            "B is shortest",
+            "C is tallest",
+            "Cannot know"
+        ],
+        answer:1
+    },
+
+    {
+        category:"ANALOGY",
+        question:"DOCTOR is to HOSPITAL as TEACHER is to:",
+        options:[
+            "Book",
+            "Classroom",
+            "Student",
+            "Exam",
+            "School",
+            "Desk"
+        ],
+        answer:4
+    },
+
+    {
+        category:"SEQUENCE",
+        question:"What letter comes next? C, F, I, L, O, ?",
+        options:[
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U"
+        ],
+        answer:2
+    },
+
+    {
+        category:"VOCABULARY",
+        question:"Which word best matches CONCISE?",
+        options:[
+            "Brief",
+            "Confusing",
+            "Detailed",
+            "Ancient",
+            "Angry",
+            "Flexible"
+        ],
+        answer:0
+    },
+
+    {
+        category:"LOGIC",
+        question:"Sara is ahead of Ali. Ali is ahead of Noor. Who cannot be first among these three?",
+        options:[
+            "Sara",
+            "Ali",
+            "Noor",
+            "Either Sara or Ali",
+            "Any of them",
+            "Cannot determine"
+        ],
+        answer:2
+    },
+
+    {
+        category:"NUMBER LOGIC",
+        question:"What is the missing number? 4, 9, 19, 39, 79, ?",
+        options:[
+            "119",
+            "139",
+            "149",
+            "159",
+            "169",
+            "179"
+        ],
+        answer:3
+    },
+
+    {
+        category:"ANALOGY",
+        question:"SEED is to TREE as EGG is to:",
+        options:[
+            "Nest",
+            "Bird",
+            "Shell",
+            "Chick",
+            "Feather",
+            "Wing"
+        ],
+        answer:3
+    },
+
+    {
+        category:"VOCABULARY",
+        question:"INFER most nearly means:",
+        options:[
+            "Ignore",
+            "Conclude from evidence",
+            "Copy exactly",
+            "Argue loudly",
+            "Memorize",
+            "Predict randomly"
+        ],
+        answer:1
+    }
+
+];
+
+
+/* ============================================================
+   GAME STATE
+============================================================ */
+
+let currentQuestion = 0;
+
+let selectedAnswers = [];
+
+let testStartedAt = 0;
+
+let timerInterval = null;
+
+let remainingSeconds = 25 * 60;
+
+let soundEnabled = true;
+
+let audioContext = null;
+
+
+/* ============================================================
+   DOM REFERENCES
+============================================================ */
+
+const startScreen =
+    document.getElementById("startScreen");
+
+const quizScreen =
+    document.getElementById("quizScreen");
+
+const resultScreen =
+    document.getElementById("resultScreen");
+
+const startButton =
+    document.getElementById("startButton");
+
+const nextButton =
+    document.getElementById("nextButton");
+
+const previousButton =
+    document.getElementById("previousButton");
+
+const retakeButton =
+    document.getElementById("retakeButton");
+
+const soundButton =
+    document.getElementById("soundButton");
+
+const questionCategory =
+    document.getElementById("questionCategory");
+
+const questionText =
+    document.getElementById("questionText");
+
+const optionsContainer =
+    document.getElementById("optionsContainer");
+
+const progressLabel =
+    document.getElementById("progressLabel");
+
+const progressBar =
+    document.getElementById("progressBar");
+
+const timer =
+    document.getElementById("timer");
+
+const resultHeading =
+    document.getElementById("resultHeading");
+
+const iqResult =
+    document.getElementById("iqResult");
+
+const accuracyResult =
+    document.getElementById("accuracyResult");
+
+const correctResult =
+    document.getElementById("correctResult");
+
+const wrongResult =
+    document.getElementById("wrongResult");
+
+const timeResult =
+    document.getElementById("timeResult");
+
+const averageResult =
+    document.getElementById("averageResult");
+
+const scoreRing =
+    document.getElementById("scoreRing");
+
+const breakdownContainer =
+    document.getElementById("breakdownContainer");
+
+const resultMessage =
+    document.getElementById("resultMessage");
+
+
+/* ============================================================
+   SCREEN CONTROL
+============================================================ */
+
+function showScreen(screen){
+
+    startScreen.classList.remove("active");
+
+    quizScreen.classList.remove("active");
+
+    resultScreen.classList.remove("active");
+
+    screen.classList.add("active");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* ============================================================
+   SOUND
+============================================================ */
+
+function playSound(
+    frequency,
+    duration,
+    type="sine"
+){
+
+    if(!soundEnabled){
+        return;
+    }
+
+    try{
+
+        if(!audioContext){
+
+            const AudioContext =
+                window.AudioContext ||
+                window.webkitAudioContext;
+
+            if(!AudioContext){
+                return;
+            }
+
+            audioContext =
+                new AudioContext();
+
+        }
+
+
+        const oscillator =
+            audioContext.createOscillator();
+
+        const gain =
+            audioContext.createGain();
+
+
+        oscillator.type =
+            type;
+
+        oscillator.frequency.value =
+            frequency;
+
+
+        gain.gain.setValueAtTime(
+            0.045,
+            audioContext.currentTime
+        );
+
+
+        gain.gain.exponentialRampToValueAtTime(
+            0.001,
+            audioContext.currentTime + duration
+        );
+
+
+        oscillator.connect(gain);
+
+        gain.connect(
+            audioContext.destination
+        );
+
+
+        oscillator.start();
+
+        oscillator.stop(
+            audioContext.currentTime + duration
+        );
+
+    }catch(error){
+
+        console.log(
+            "Audio unavailable:",
+            error
+        );
+
+    }
+
+}
+
+
+/* ============================================================
+   RIPPLE EFFECT
+============================================================ */
+
+function createRipple(x,y){
+
+    const ripple =
+        document.createElement("div");
+
+    ripple.className =
+        "ripple";
+
+    ripple.style.left =
+        x + "px";
+
+    ripple.style.top =
+        y + "px";
+
+    document.body.appendChild(
+        ripple
+    );
+
+
+    setTimeout(
+        function(){
+
+            if(ripple.parentNode){
+
+                ripple.parentNode.removeChild(
+                    ripple
+                );
+
+            }
+
+        },
+        800
+    );
+
+}
+
+
+document.addEventListener(
+    "pointerdown",
+    function(event){
+
+        createRipple(
+            event.clientX,
+            event.clientY
+        );
+
+    }
+);
+
+
+/* ============================================================
+   FORMAT TIME
+============================================================ */
+
+function formatTime(totalSeconds){
+
+    const minutes =
+        Math.floor(
+            totalSeconds / 60
+        );
+
+    const seconds =
+        totalSeconds % 60;
+
+
+    return (
+        String(minutes).padStart(2,"0")
+        +
+        ":"
+        +
+        String(seconds).padStart(2,"0")
+    );
+
+}
+
+
+/* ============================================================
+   UPDATE TIMER DISPLAY
+============================================================ */
+
+function updateTimerDisplay(){
+
+    timer.textContent =
+        formatTime(
+            remainingSeconds
+        );
+
+
+    if(
+        remainingSeconds <= 60
+    ){
+
+        timer.classList.add(
+            "warning"
+        );
+
+    }else{
+
+        timer.classList.remove(
+            "warning"
+        );
+
+    }
+
+}
+
+
+/* ============================================================
+   TIMER TICK
+============================================================ */
+
+function timerTick(){
+
+    if(
+        remainingSeconds <= 0
+    ){
+
+        remainingSeconds = 0;
+
+        updateTimerDisplay();
+
+        finishTest();
+
+        return;
+
+    }
+
+
+    remainingSeconds--;
+
+    updateTimerDisplay();
+
+}
+
+
+/* ============================================================
+   START TIMER
+============================================================ */
+
+function startTimer(){
+
+    clearInterval(
+        timerInterval
+    );
+
+
+    remainingSeconds =
+        25 * 60;
+
+
+    updateTimerDisplay();
+
+
+    timerInterval =
+        setInterval(
+            timerTick,
+            1000
+        );
+
+}
+
+
+/* ============================================================
+   STOP TIMER
+============================================================ */
+
+function stopTimer(){
+
+    clearInterval(
+        timerInterval
+    );
+
+    timerInterval = null;
+
+}
+
+
+/* ============================================================
+   START TEST
+============================================================ */
+
+function startTest(){
+
+    currentQuestion = 0;
+
+    selectedAnswers =
+        new Array(
+            QUESTIONS.length
+        ).fill(null);
+
+
+    testStartedAt =
+        Date.now();
+
+
+    showScreen(
+        quizScreen
+    );
+
+
+    startTimer();
+
+
+    renderQuestion();
+
+
+    playSound(
+        720,
+        .10,
+        "triangle"
+    );
+
+}
+
+
+/* ============================================================
+   RENDER QUESTION
+============================================================ */
+
+function renderQuestion(){
+
+    const question =
+        QUESTIONS[currentQuestion];
+
+
+    questionCategory.textContent =
+        question.category;
+
+
+    questionText.textContent =
+        question.question;
+
+
+    progressLabel.textContent =
+        "Question "
+        +
+        (currentQuestion + 1)
+        +
+        " of "
+        +
+        QUESTIONS.length;
+
+
+    const percentage =
+        (
+            (currentQuestion + 1)
+            /
+            QUESTIONS.length
+        ) * 100;
+
+
+    progressBar.style.width =
+        percentage + "%";
+
+
+    optionsContainer.innerHTML =
+        "";
+
+
+    question.options.forEach(
+        function(optionText,index){
+
+            const optionButton =
+                document.createElement(
+                    "button"
+                );
+
+
+            optionButton.type =
+                "button";
+
+
+            optionButton.className =
+                "option";
+
+
+            /*
+               IMPORTANT:
+
+               This class only restores the
+               student's selected option.
+
+               It NEVER checks the answer.
+            */
+
+            if(
+                selectedAnswers[currentQuestion]
+                ===
+                index
+            ){
+
+                optionButton.classList.add(
+                    "selected"
+                );
+
+            }
+
+
+            const letter =
+                document.createElement(
+                    "span"
+                );
+
+
+            letter.className =
+                "option-letter";
+
+
+            letter.textContent =
+                String.fromCharCode(
+                    65 + index
+                );
+
+
+            const text =
+                document.createElement(
+                    "span"
+                );
+
+
+            text.textContent =
+                optionText;
+
+
+            optionButton.appendChild(
+                letter
+            );
+
+            optionButton.appendChild(
+                text
+            );
+
+
+            optionButton.addEventListener(
+                "click",
+                function(){
+
+                    /*
+                       ONLY SAVE USER'S SELECTION.
+
+                       NO CORRECTNESS CHECK HERE.
+                    */
+
+                    selectedAnswers[
+                        currentQuestion
+                    ] = index;
+
+
+                    playSound(
+                        620,
+                        .05
+                    );
+
+
+                    renderQuestion();
+
+                }
+            );
+
+
+            optionsContainer.appendChild(
+                optionButton
+            );
+
+        }
+    );
+
+
+    previousButton.style.visibility =
+        currentQuestion === 0
+            ? "hidden"
+            : "visible";
+
+
+    if(
+        currentQuestion ===
+        QUESTIONS.length - 1
+    ){
+
+        nextButton.textContent =
+            "FINISH TEST ✓";
+
+    }else{
+
+        nextButton.textContent =
+            "Next →";
+
+    }
+
+}
+
+
+/* ============================================================
+   NEXT QUESTION
+============================================================ */
+
+function goNext(){
+
+    /*
+       Do not reveal correctness.
+       Only make sure the student has selected
+       an option before moving forward.
+    */
+
+    if(
+        selectedAnswers[currentQuestion]
+        ===
+        null
+    ){
+
+        playSound(
+            220,
+            .08,
+            "square"
+        );
+
+        return;
+
+    }
+
+
+    if(
+        currentQuestion
+        ===
+        QUESTIONS.length - 1
+    ){
+
+        finishTest();
+
+        return;
+
+    }
+
+
+    currentQuestion++;
+
+
+    playSound(
+        720,
+        .05
+    );
+
+
+    renderQuestion();
+
+}
+
+
+/* ============================================================
+   PREVIOUS QUESTION
+============================================================ */
+
+function goPrevious(){
+
+    if(
+        currentQuestion <= 0
+    ){
+
+        return;
+
+    }
+
+
+    currentQuestion--;
+
+
+    playSound(
+        430,
+        .05
+    );
+
+
+    renderQuestion();
+
+}
+
+
+/* ============================================================
+   CALCULATE IQ ESTIMATE
+============================================================ */
+
+function calculateIQ(
+    correct,
+    total
+){
+
+    const accuracy =
+        correct / total;
+
+
+    /*
+       Educational game estimate.
+
+       Minimum = 75
+       Maximum = 140
+    */
+
+    let iq =
+        Math.round(
+            75 +
+            (
+                accuracy * 65
+            )
+        );
+
+
+    if(iq < 75){
+        iq = 75;
+    }
+
+
+    if(iq > 140){
+        iq = 140;
+    }
+
+
+    return iq;
+
+}
+
+
+/* ============================================================
+   IQ LEVEL
+============================================================ */
+
+function getIQLevel(iq){
+
+    if(iq >= 130){
+
+        return "Exceptional";
+
+    }
+
+
+    if(iq >= 120){
+
+        return "Very High";
+
+    }
+
+
+    if(iq >= 110){
+
+        return "High";
+
+    }
+
+
+    if(iq >= 90){
+
+        return "Average";
+
+    }
+
+
+    if(iq >= 80){
+
+        return "Developing";
+
+    }
+
+
+    return "Needs Practice";
+
+}
+
+
+/* ============================================================
+   FINAL TEST CALCULATION
+
+   THIS IS THE ONLY FUNCTION WHERE THE CORRECT
+   ANSWER IS COMPARED.
+
+   Therefore:
+
+   DURING TEST:
+   NO RIGHT / WRONG INFORMATION.
+
+   AFTER TEST:
+   FULL RESULT.
+============================================================ */
+
+function finishTest(){
+
+    stopTimer();
+
+
+    const endTime =
+        Date.now();
+
+
+    let elapsedSeconds =
+        Math.round(
+            (
+                endTime -
+                testStartedAt
+            ) / 1000
+        );
+
+
+    if(
+        elapsedSeconds < 0
+    ){
+
+        elapsedSeconds = 0;
+
+    }
+
+
+    if(
+        elapsedSeconds >
+        25 * 60
+    ){
+
+        elapsedSeconds =
+            25 * 60;
+
+    }
+
+
+    /*
+       NOW calculate correct answers.
+    */
+
+    let correct = 0;
+
+
+    for(
+        let i = 0;
+        i < QUESTIONS.length;
+        i++
+    ){
+
+        if(
+            selectedAnswers[i]
+            ===
+            QUESTIONS[i].answer
+        ){
+
+            correct++;
+
+        }
+
+    }
+
+
+    const total =
+        QUESTIONS.length;
+
+
+    const wrong =
+        total - correct;
+
+
+    const accuracy =
+        Math.round(
+            (
+                correct /
+                total
+            ) * 100
+        );
+
+
+    const iq =
+        calculateIQ(
+            correct,
+            total
+        );
+
+
+    const level =
+        getIQLevel(
+            iq
+        );
+
+
+    /*
+       RESULT HEADING
+    */
+
+    resultHeading.textContent =
+        level + " Performance";
+
+
+    iqResult.textContent =
+        "Estimated IQ: " + iq;
+
+
+    accuracyResult.textContent =
+        accuracy + "%";
+
+
+    correctResult.textContent =
+        correct +
+        " / " +
+        total;
+
+
+    wrongResult.textContent =
+        String(wrong);
+
+
+    timeResult.textContent =
+        formatTime(
+            elapsedSeconds
+        );
+
+
+    const average =
+        (
+            elapsedSeconds /
+            total
+        ).toFixed(1);
+
+
+    averageResult.textContent =
+        average + "s";
+
+
+    /*
+       SCORE RING
+    */
+
+    scoreRing.style.setProperty(
+        "--degree",
+        (
+            accuracy * 3.6
+        ) + "deg"
+    );
+
+
+    /*
+       CATEGORY BREAKDOWN
+    */
+
+    const categoryStats = {};
+
+
+    QUESTIONS.forEach(
+        function(question,index){
+
+            const category =
+                question.category;
+
+
+            if(
+                !categoryStats[category]
+            ){
+
+                categoryStats[category] = {
+                    correct:0,
+                    total:0
+                };
+
+            }
+
+
+            categoryStats[
+                category
+            ].total++;
+
+
+            if(
+                selectedAnswers[index]
+                ===
+                question.answer
+            ){
+
+                categoryStats[
+                    category
+                ].correct++;
+
+            }
+
+        }
+    );
+
+
+    breakdownContainer.innerHTML =
+        "";
+
+
+    Object.keys(
+        categoryStats
+    ).forEach(
+        function(category){
+
+            const data =
+                categoryStats[
+                    category
+                ];
+
+
+            const percentage =
+                Math.round(
+                    (
+                        data.correct /
+                        data.total
+                    ) * 100
+                );
+
+
+            const row =
+                document.createElement(
+                    "div"
+                );
+
+
+            row.className =
+                "breakdown-row";
+
+
+            const name =
+                document.createElement(
+                    "span"
+                );
+
+
+            name.textContent =
+                category;
+
+
+            const bar =
+                document.createElement(
+                    "div"
+                );
+
+
+            bar.className =
+                "breakdown-bar";
+
+
+            const fill =
+                document.createElement(
+                    "div"
+                );
+
+
+            fill.className =
+                "breakdown-fill";
+
+
+            fill.style.width =
+                percentage + "%";
+
+
+            const number =
+                document.createElement(
+                    "b"
+                );
+
+
+            number.textContent =
+                percentage + "%";
+
+
+            bar.appendChild(
+                fill
+            );
+
+
+            row.appendChild(
+                name
+            );
+
+            row.appendChild(
+                bar
+            );
+
+            row.appendChild(
+                number
+            );
+
+
+            breakdownContainer.appendChild(
+                row
+            );
+
+        }
+    );
+
+
+    /*
+       RESULT MESSAGE
+    */
+
+    resultMessage.textContent =
+        "You completed "
+        +
+        total
+        +
+        " verbal reasoning questions in "
+        +
+        formatTime(elapsedSeconds)
+        +
+        ". You answered "
+        +
+        correct
+        +
+        " correctly and "
+        +
+        wrong
+        +
+        " incorrectly. Your estimated IQ is "
+        +
+        iq
+        +
+        ". This is a game-based estimate, not a standardized clinical IQ score.";
+
+
+    /*
+       SHOW RESULT ONLY NOW.
+    */
+
+    showScreen(
+        resultScreen
+    );
+
+
+    /*
+       SUCCESS SOUND
+    */
+
+    playSound(
+        880,
+        .12,
+        "triangle"
+    );
+
+
+    setTimeout(
+        function(){
+
+            playSound(
+                1100,
+                .12,
+                "triangle"
+            );
+
+        },
+        150
+    );
+
+}
+
+
+/* ============================================================
+   EVENT LISTENERS
+============================================================ */
+
+startButton.addEventListener(
+    "click",
+    function(){
+
+        startTest();
+
+    }
+);
+
+
+nextButton.addEventListener(
+    "click",
+    function(){
+
+        goNext();
+
+    }
+);
+
+
+previousButton.addEventListener(
+    "click",
+    function(){
+
+        goPrevious();
+
+    }
+);
+
+
+retakeButton.addEventListener(
+    "click",
+    function(){
+
+        startTest();
+
+    }
+);
+
+
+/* ============================================================
+   SOUND BUTTON
+============================================================ */
+
+soundButton.addEventListener(
+    "click",
+    function(){
+
+        soundEnabled =
+            !soundEnabled;
+
+
+        if(soundEnabled){
+
+            soundButton.textContent =
+                "🔊 Sound ON";
+
+
+            playSound(
+                600,
+                .06
+            );
+
+        }else{
+
+            soundButton.textContent =
+                "🔇 Sound OFF";
+
+        }
+
+    }
+);
+
+
+/* ============================================================
+   INITIAL STATE
+============================================================ */
+
+showScreen(
+    startScreen
+);
+
+</script>
+
+</body>
+  </html>
