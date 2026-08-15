@@ -60,8 +60,6 @@ body{
     overflow-x:hidden;
 }
 
-/* BACKGROUND GRID */
-
 body::before{
     content:"";
     position:fixed;
@@ -82,8 +80,6 @@ body::before{
     background-size:35px 35px;
 }
 
-/* BACKGROUND GLOW */
-
 body::after{
     content:"";
     position:fixed;
@@ -102,15 +98,11 @@ body::after{
         );
 }
 
-/* MAIN APP */
-
 .app{
     width:min(1120px,94vw);
     margin:auto;
     padding:22px 0 45px;
 }
-
-/* TOP BAR */
 
 .topbar{
     display:flex;
@@ -158,8 +150,6 @@ body::after{
     letter-spacing:.08em;
 }
 
-/* SOUND BUTTON */
-
 .sound-btn{
     border:1px solid rgba(8,201,139,.25);
     background:rgba(255,255,255,.8);
@@ -176,8 +166,6 @@ body::after{
     border-color:var(--emerald);
 }
 
-/* SCREENS */
-
 .screen{
     display:none;
 }
@@ -185,8 +173,6 @@ body::after{
 .screen.active{
     display:block;
 }
-
-/* GLASS CARD */
 
 .glass{
     background:rgba(255,255,255,.78);
@@ -198,8 +184,6 @@ body::after{
     backdrop-filter:blur(18px);
     -webkit-backdrop-filter:blur(18px);
 }
-
-/* START HERO */
 
 .hero{
     position:relative;
@@ -224,8 +208,6 @@ body::after{
         );
     pointer-events:none;
 }
-
-/* BRAIN */
 
 .brain{
     width:115px;
@@ -261,8 +243,6 @@ body::after{
 
 }
 
-/* CATEGORY */
-
 .category{
     color:#087c59;
     font-size:11px;
@@ -270,8 +250,6 @@ body::after{
     letter-spacing:.14em;
     text-transform:uppercase;
 }
-
-/* HERO HEADING */
 
 .hero h2{
     margin:8px 0 15px;
@@ -299,8 +277,6 @@ body::after{
     line-height:1.75;
     font-size:15px;
 }
-
-/* INFO CARDS */
 
 .info-grid{
     max-width:760px;
@@ -335,8 +311,6 @@ body::after{
     font-weight:900;
     letter-spacing:.08em;
 }
-
-/* BUTTON */
 
 .btn{
     border:0;
@@ -393,8 +367,6 @@ body::after{
     transform:none;
 }
 
-/* NOTICE */
-
 .notice{
     max-width:760px;
     margin:17px auto 0;
@@ -405,8 +377,6 @@ body::after{
     font-size:11px;
     line-height:1.6;
 }
-
-/* QUIZ HEADER */
 
 .quiz-header{
     display:flex;
@@ -447,8 +417,6 @@ body::after{
     transition:width .3s ease;
 }
 
-/* TIMER */
-
 .timer{
     min-width:105px;
     padding:12px;
@@ -464,8 +432,6 @@ body::after{
 .timer.warning{
     background:#7d3e20;
 }
-
-/* QUESTION CARD */
 
 .question-card{
     padding:30px;
@@ -484,8 +450,6 @@ body::after{
     font-size:clamp(20px,3vw,29px);
     line-height:1.4;
 }
-
-/* OPTIONS */
 
 .options{
     display:grid;
@@ -512,18 +476,6 @@ body::after{
         background .18s,
         box-shadow .18s;
 }
-
-/*
-    IMPORTANT:
-
-    The selected class means ONLY:
-    "This is the option the student selected."
-
-    It does NOT mean:
-    "This answer is correct."
-
-    Correctness is never checked here.
-*/
 
 .option:hover{
     transform:translateY(-2px);
@@ -558,8 +510,6 @@ body::after{
     color:#fff;
 }
 
-/* NAVIGATION */
-
 .navigation{
     display:flex;
     justify-content:space-between;
@@ -567,7 +517,40 @@ body::after{
     margin-top:20px;
 }
 
-/* RESULT */
+.attempt-badge{
+    width:fit-content;
+    min-width:190px;
+    margin:0 auto 18px;
+    padding:13px 23px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:11px;
+    border-radius:18px;
+    border:1px solid rgba(233,196,106,.65);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.96),
+            rgba(255,247,214,.94)
+        );
+    box-shadow:
+        0 12px 35px rgba(16,37,31,.08),
+        0 0 0 3px rgba(233,196,106,.08);
+}
+
+.attempt-badge span{
+    color:#7d6840;
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:.16em;
+}
+
+.attempt-badge strong{
+    color:#087c59;
+    font-size:22px;
+    font-weight:950;
+}
 
 .result-grid{
     display:grid;
@@ -593,8 +576,6 @@ body::after{
     font-size:21px;
     font-weight:900;
 }
-
-/* SCORE RING */
 
 .score-ring{
     --degree:0deg;
@@ -641,8 +622,6 @@ body::after{
     font-weight:900;
 }
 
-/* STATS */
-
 .stats-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -668,8 +647,6 @@ body::after{
     font-weight:900;
 }
 
-/* BREAKDOWN */
-
 .breakdown{
     display:grid;
     gap:12px;
@@ -678,10 +655,10 @@ body::after{
 
 .breakdown-row{
     display:grid;
-    grid-template-columns:95px 1fr 45px;
+    grid-template-columns:115px 1fr 45px;
     gap:8px;
     align-items:center;
-    font-size:11px;
+    font-size:10px;
     font-weight:900;
 }
 
@@ -704,14 +681,10 @@ body::after{
         );
 }
 
-/* RESULT BUTTON */
-
 .result-button{
     width:100%;
     margin-top:18px;
 }
-
-/* FOOTER */
 
 .footer{
     margin-top:18px;
@@ -719,8 +692,6 @@ body::after{
     color:#7c8984;
     font-size:10px;
 }
-
-/* RIPPLE */
 
 .ripple{
     position:fixed;
@@ -754,8 +725,6 @@ body::after{
     }
 
 }
-
-/* RESPONSIVE */
 
 @media(max-width:700px){
 
@@ -834,9 +803,12 @@ body::after{
         font-size:29px;
     }
 
-}
+    .attempt-badge{
+        min-width:165px;
+        padding:11px 17px;
+    }
 
-/* EXTRA SMALL DEVICES */
+}
 
 @media(max-width:400px){
 
@@ -868,488 +840,401 @@ body::after{
 </style>
 </head>
 
-
 <body>
-
 
 <div class="app">
 
+<header class="topbar">
 
-    <!-- ==================================================
-         TOP BAR
-    ================================================== -->
+    <div class="brand">
 
-    <header class="topbar">
+        <div class="logo">
+            🧠
+        </div>
 
-        <div class="brand">
+        <div>
 
-            <div class="logo">
-                🧠
-            </div>
+            <h1>
+                MIND EMERALD
+            </h1>
 
-            <div>
-
-                <h1>
-                    MIND EMERALD
-                </h1>
-
-                <small>
-                    VERBAL INTELLIGENCE CHALLENGE
-                </small>
-
-            </div>
+            <small>
+                VERBAL INTELLIGENCE CHALLENGE
+            </small>
 
         </div>
 
+    </div>
 
-        <button
-            class="sound-btn"
-            id="soundButton"
-            type="button"
+    <button
+        class="sound-btn"
+        id="soundButton"
+        type="button"
+    >
+        🔊 Sound ON
+    </button>
+
+</header>
+
+
+<main
+    id="startScreen"
+    class="screen active"
+>
+
+<section class="hero glass">
+
+    <div class="brain">
+        🧠
+    </div>
+
+    <div class="category">
+        COGNITIVE ASSESSMENT • VERBAL INTELLIGENCE
+    </div>
+
+    <h2>
+        Measure Your
+        <span>Thinking Power</span>
+    </h2>
+
+    <p class="hero-description">
+
+        Challenge your logical reasoning, verbal deduction,
+        sequences, analogies, classification, ordering and
+        pattern-recognition abilities.
+
+    </p>
+
+    <div class="info-grid">
+
+        <div class="info-card">
+
+            <strong>
+                30
+            </strong>
+
+            <span>
+                QUESTIONS
+            </span>
+
+        </div>
+
+        <div class="info-card">
+
+            <strong>
+                6
+            </strong>
+
+            <span>
+                OPTIONS / QUESTION
+            </span>
+
+        </div>
+
+        <div class="info-card">
+
+            <strong>
+                25 MIN
+            </strong>
+
+            <span>
+                TIME LIMIT
+            </span>
+
+        </div>
+
+    </div>
+
+    <button
+        class="btn gold"
+        id="startButton"
+        type="button"
+    >
+        START INTELLIGENCE TEST →
+    </button>
+
+    <div class="notice">
+
+        All questions are reasoning-based.
+        There are no vocabulary-definition or
+        general-knowledge questions.
+        The final IQ figure is an educational game estimate,
+        not a clinically standardized IQ result.
+
+    </div>
+
+</section>
+
+</main>
+
+
+<main
+    id="quizScreen"
+    class="screen"
+>
+
+<div class="quiz-header">
+
+    <div class="progress-container">
+
+        <div
+            class="progress-label"
+            id="progressLabel"
         >
-            🔊 Sound ON
-        </button>
-
-    </header>
-
-
-
-    <!-- ==================================================
-         START SCREEN
-    ================================================== -->
-
-    <main
-        id="startScreen"
-        class="screen active"
-    >
-
-        <section class="hero glass">
-
-            <div class="brain">
-                🧠
-            </div>
-
-
-            <div class="category">
-                COGNITIVE ASSESSMENT • VERBAL REASONING
-            </div>
-
-
-            <h2>
-                Measure Your
-                <span>Thinking Power</span>
-            </h2>
-
-
-            <p class="hero-description">
-
-                Test your verbal reasoning, logical deduction,
-                vocabulary, analogies, sequences and
-                classification skills through a challenging
-                six-option intelligence game.
-
-            </p>
-
-
-            <div class="info-grid">
-
-                <div class="info-card">
-
-                    <strong>
-                        30
-                    </strong>
-
-                    <span>
-                        QUESTIONS
-                    </span>
-
-                </div>
-
-
-                <div class="info-card">
-
-                    <strong>
-                        6
-                    </strong>
-
-                    <span>
-                        OPTIONS / QUESTION
-                    </span>
-
-                </div>
-
-
-                <div class="info-card">
-
-                    <strong>
-                        25 MIN
-                    </strong>
-
-                    <span>
-                        TIME LIMIT
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <button
-                class="btn gold"
-                id="startButton"
-                type="button"
-            >
-                START INTELLIGENCE TEST →
-            </button>
-
-
-            <div class="notice">
-
-                This is an educational IQ-style game.
-                The final IQ figure is an estimated game score
-                and is not a clinically standardized IQ result.
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-
-    <!-- ==================================================
-         QUIZ SCREEN
-    ================================================== -->
-
-    <main
-        id="quizScreen"
-        class="screen"
-    >
-
-
-        <div class="quiz-header">
-
-
-            <div class="progress-container">
-
-                <div
-                    class="progress-label"
-                    id="progressLabel"
-                >
-                    Question 1 of 30
-                </div>
-
-
-                <div class="progress">
-
-                    <div
-                        class="progress-bar"
-                        id="progressBar"
-                    ></div>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="timer"
-                id="timer"
-            >
-                25:00
-            </div>
-
-
+            Question 1 of 30
         </div>
 
-
-
-        <section class="question-card glass">
-
+        <div class="progress">
 
             <div
-                class="question-number"
-                id="questionCategory"
-            >
-                VERBAL REASONING
-            </div>
-
-
-            <h2
-                class="question-text"
-                id="questionText"
-            >
-                Question
-            </h2>
-
-
-            <div
-                class="options"
-                id="optionsContainer"
+                class="progress-bar"
+                id="progressBar"
             ></div>
 
+        </div>
 
-            <div class="navigation">
+    </div>
 
-
-                <button
-                    class="btn secondary"
-                    id="previousButton"
-                    type="button"
-                >
-                    ← Previous
-                </button>
-
-
-                <button
-                    class="btn"
-                    id="nextButton"
-                    type="button"
-                >
-                    Next →
-                </button>
-
-
-            </div>
-
-
-        </section>
-
-
-    </main>
-
-
-
-    <!-- ==================================================
-         RESULT SCREEN
-    ================================================== -->
-
-    <main
-        id="resultScreen"
-        class="screen"
+    <div
+        class="timer"
+        id="timer"
     >
-
-
-        <div class="result-grid">
-
-
-            <!-- SCORE CARD -->
-
-            <section class="result-card glass">
-
-
-                <div class="result-title">
-
-                    <div class="category">
-                        ASSESSMENT COMPLETE
-                    </div>
-
-
-                    <h2 id="resultHeading">
-                        Test Complete
-                    </h2>
-
-
-                    <div
-                        class="iq-text"
-                        id="iqResult"
-                    >
-                        Estimated IQ: --
-                    </div>
-
-                </div>
-
-
-
-                <div
-                    class="score-ring"
-                    id="scoreRing"
-                >
-
-                    <div class="score-content">
-
-                        <strong id="accuracyResult">
-                            0%
-                        </strong>
-
-                        <span>
-                            ACCURACY
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="stats-grid">
-
-
-                    <div class="stat">
-
-                        <strong id="correctResult">
-                            0 / 30
-                        </strong>
-
-                        <span>
-                            CORRECT ANSWERS
-                        </span>
-
-                    </div>
-
-
-                    <div class="stat">
-
-                        <strong id="wrongResult">
-                            0
-                        </strong>
-
-                        <span>
-                            INCORRECT
-                        </span>
-
-                    </div>
-
-
-                    <div class="stat">
-
-                        <strong id="timeResult">
-                            00:00
-                        </strong>
-
-                        <span>
-                            TIME TAKEN
-                        </span>
-
-                    </div>
-
-
-                    <div class="stat">
-
-                        <strong id="averageResult">
-                            0s
-                        </strong>
-
-                        <span>
-                            AVG / QUESTION
-                        </span>
-
-                    </div>
-
-
-                </div>
-
-
-            </section>
-
-
-
-            <!-- PROFILE CARD -->
-
-            <section class="result-card glass">
-
-
-                <div class="category">
-                    COGNITIVE PROFILE
-                </div>
-
-
-                <h3 style="margin-top:8px;">
-                    Performance Breakdown
-                </h3>
-
-
-                <div
-                    class="breakdown"
-                    id="breakdownContainer"
-                ></div>
-
-
-                <div
-                    class="notice"
-                    id="resultMessage"
-                >
-                    Result information will appear here.
-                </div>
-
-
-                <button
-                    class="btn result-button"
-                    id="retakeButton"
-                    type="button"
-                >
-                    RETAKE TEST
-                </button>
-
-
-            </section>
-
-
-        </div>
-
-
-        <div class="footer">
-
-            MIND EMERALD • VERBAL INTELLIGENCE GAME
-
-        </div>
-
-
-    </main>
-
+        25:00
+    </div>
 
 </div>
 
+
+<section class="question-card glass">
+
+    <div
+        class="question-number"
+        id="questionCategory"
+    >
+        LOGICAL REASONING
+    </div>
+
+    <h2
+        class="question-text"
+        id="questionText"
+    >
+        Question
+    </h2>
+
+    <div
+        class="options"
+        id="optionsContainer"
+    ></div>
+
+    <div class="navigation">
+
+        <button
+            class="btn secondary"
+            id="previousButton"
+            type="button"
+        >
+            ← Previous
+        </button>
+
+        <button
+            class="btn"
+            id="nextButton"
+            type="button"
+        >
+            Next →
+        </button>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<main
+    id="resultScreen"
+    class="screen"
+>
+
+<div
+    class="attempt-badge glass"
+>
+
+    <span>
+        ATTEMPT
+    </span>
+
+    <strong
+        id="attemptResult"
+    >
+        #1
+    </strong>
+
+</div>
+
+
+<div class="result-grid">
+
+<section class="result-card glass">
+
+    <div class="result-title">
+
+        <div class="category">
+            ASSESSMENT COMPLETE
+        </div>
+
+        <h2 id="resultHeading">
+            Test Complete
+        </h2>
+
+        <div
+            class="iq-text"
+            id="iqResult"
+        >
+            Estimated IQ: --
+        </div>
+
+    </div>
+
+
+    <div
+        class="score-ring"
+        id="scoreRing"
+    >
+
+        <div class="score-content">
+
+            <strong id="accuracyResult">
+                0%
+            </strong>
+
+            <span>
+                ACCURACY
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="stats-grid">
+
+        <div class="stat">
+
+            <strong id="correctResult">
+                0 / 30
+            </strong>
+
+            <span>
+                CORRECT ANSWERS
+            </span>
+
+        </div>
+
+        <div class="stat">
+
+            <strong id="wrongResult">
+                0
+            </strong>
+
+            <span>
+                INCORRECT
+            </span>
+
+        </div>
+
+        <div class="stat">
+
+            <strong id="timeResult">
+                00:00
+            </strong>
+
+            <span>
+                TIME TAKEN
+            </span>
+
+        </div>
+
+        <div class="stat">
+
+            <strong id="averageResult">
+                0s
+            </strong>
+
+            <span>
+                AVG / QUESTION
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="result-card glass">
+
+    <div class="category">
+        COGNITIVE PROFILE
+    </div>
+
+    <h3 style="margin-top:8px;">
+        Reasoning Breakdown
+    </h3>
+
+    <div
+        class="breakdown"
+        id="breakdownContainer"
+    ></div>
+
+    <div
+        class="notice"
+        id="resultMessage"
+    >
+        Result information will appear here.
+    </div>
+
+    <button
+        class="btn result-button"
+        id="retakeButton"
+        type="button"
+    >
+        RETAKE TEST
+    </button>
+
+</section>
+
+</div>
+
+
+<div class="footer">
+
+    MIND EMERALD • VERBAL INTELLIGENCE GAME
+
+</div>
+
+</main>
+
+</div>
 
 
 <script>
 
 /* ============================================================
    MIND EMERALD
-   COMPLETE JAVASCRIPT ENGINE
-
-   IMPORTANT:
-   NO ANSWER IS CHECKED DURING THE TEST.
-
-   The correct answer is checked ONLY when finishTest()
-   executes.
-
+   COMPLETE INTELLIGENCE GAME ENGINE
 ============================================================ */
 
 
 /* ============================================================
-   QUESTION DATA
-
-   Format:
-
-   {
-       category: "...",
-       question: "...",
-       options: ["","","","","",""],
-       answer: number
-   }
-
-   answer is the zero-based correct option index.
+   QUESTION DATABASE
+   PURE REASONING QUESTIONS
 ============================================================ */
 
 const QUESTIONS = [
 
     {
-        category:"ANALOGY",
-        question:"BOOK is to READING as FORK is to:",
-        options:[
-            "Writing",
-            "Eating",
-            "Cooking",
-            "Cutting",
-            "Serving",
-            "Washing"
-        ],
-        answer:1
-    },
-
-    {
-        category:"NUMBER LOGIC",
+        category:"NUMBER SEQUENCE",
         question:"What number should come next? 2, 6, 12, 20, 30, ?",
         options:[
             "36",
@@ -1363,101 +1248,73 @@ const QUESTIONS = [
     },
 
     {
-        category:"VOCABULARY",
-        question:"Which word is closest in meaning to “METICULOUS”?",
+        category:"LETTER SEQUENCE",
+        question:"What letter comes next? C, F, I, L, O, ?",
         options:[
-            "Careless",
-            "Precise",
-            "Rapid",
-            "Doubtful",
-            "Generous",
-            "Noisy"
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U"
         ],
-        answer:1
+        answer:2
     },
 
     {
-        category:"DEDUCTION",
+        category:"ANALOGICAL REASONING",
+        question:"PUPPY is to DOG as CALF is to:",
+        options:[
+            "Goat",
+            "Horse",
+            "Cow",
+            "Sheep",
+            "Deer",
+            "Pig"
+        ],
+        answer:2
+    },
+
+    {
+        category:"SYLLOGISTIC REASONING",
         question:"All NEX are RAV. No RAV are TUL. Which statement must be true?",
         options:[
             "Some NEX are TUL",
             "No NEX are TUL",
             "All TUL are NEX",
-            "Some RAV are NEX",
             "All RAV are NEX",
-            "No TUL exist"
+            "Some TUL are RAV",
+            "No NEX exist"
         ],
         answer:1
     },
 
     {
-        category:"SEQUENCE",
-        question:"Choose the next pair: AB, DE, GH, JK, ?",
+        category:"NUMBER PATTERN",
+        question:"What number should replace the question mark? 3, 7, 15, 31, 63, ?",
         options:[
-            "LM",
-            "MN",
-            "NO",
-            "OP",
-            "PQ",
-            "QR"
+            "95",
+            "111",
+            "120",
+            "127",
+            "129",
+            "135"
         ],
-        answer:1
+        answer:3
     },
 
     {
-        category:"ANALOGY",
-        question:"FINGER is to HAND as TOE is to:",
+        category:"ORDERING",
+        question:"Ali is taller than Bilal. Bilal is taller than Hamza. Hamza is taller than Daniyal. Who is definitely the shortest?",
         options:[
-            "Leg",
-            "Foot",
-            "Knee",
-            "Shoe",
-            "Ankle",
-            "Body"
+            "Ali",
+            "Bilal",
+            "Hamza",
+            "Daniyal",
+            "Ali or Bilal",
+            "Cannot be determined"
         ],
-        answer:1
-    },
-
-    {
-        category:"ODD ONE OUT",
-        question:"Which word does NOT belong?",
-        options:[
-            "Triangle",
-            "Square",
-            "Circle",
-            "Rectangle",
-            "Pentagon",
-            "Cube"
-        ],
-        answer:5
-    },
-
-    {
-        category:"LOGIC",
-        question:"If every ZOR is a MIP and some MIPs are LEX, which statement is definitely possible?",
-        options:[
-            "Some ZOR may be LEX",
-            "Every ZOR is LEX",
-            "No MIP is LEX",
-            "Every LEX is ZOR",
-            "No ZOR exists",
-            "Every MIP is ZOR"
-        ],
-        answer:0
-    },
-
-    {
-        category:"VOCABULARY",
-        question:"RELUCTANT most nearly means:",
-        options:[
-            "Eager",
-            "Unwilling",
-            "Certain",
-            "Proud",
-            "Cheerful",
-            "Curious"
-        ],
-        answer:1
+        answer:3
     },
 
     {
@@ -1475,7 +1332,7 @@ const QUESTIONS = [
     },
 
     {
-        category:"ANALOGY",
+        category:"ANALOGICAL REASONING",
         question:"CLOCK is to TIME as THERMOMETER is to:",
         options:[
             "Heat",
@@ -1489,21 +1346,21 @@ const QUESTIONS = [
     },
 
     {
-        category:"DEDUCTION",
+        category:"LOGICAL DEDUCTION",
         question:"Some artists are teachers. All teachers are readers. What must be true?",
         options:[
             "All artists are readers",
             "Some artists are readers",
             "No artists are readers",
             "All readers are teachers",
-            "Some readers are not teachers",
+            "Some teachers are not readers",
             "No teachers are artists"
         ],
         answer:1
     },
 
     {
-        category:"NUMBER LOGIC",
+        category:"NUMBER RELATION",
         question:"If 3 → 12, 4 → 20, 5 → 30, then 7 → ?",
         options:[
             "42",
@@ -1517,217 +1374,49 @@ const QUESTIONS = [
     },
 
     {
-        category:"VOCABULARY",
-        question:"Which is the best opposite of SCARCE?",
-        options:[
-            "Rare",
-            "Limited",
-            "Abundant",
-            "Tiny",
-            "Weak",
-            "Simple"
-        ],
-        answer:2
-    },
-
-    {
         category:"CLASSIFICATION",
-        question:"Which pair has the same relationship as HOT : COLD?",
+        question:"Which one does NOT belong with the others?",
         options:[
-            "Fast : Quick",
-            "Big : Large",
-            "Early : Late",
-            "Soft : Smooth",
-            "High : Tall",
-            "Near : Close"
-        ],
-        answer:2
-    },
-
-    {
-        category:"WORD LOGIC",
-        question:"Which option contains a valid word that can be formed from the letters LISTEN?",
-        options:[
-            "Silent",
-            "Enlist",
-            "Tinsel",
-            "Inlets",
-            "All of these",
-            "None"
-        ],
-        answer:4
-    },
-
-    {
-        category:"SEQUENCE",
-        question:"What comes next? 1, 1, 2, 3, 5, 8, ?",
-        options:[
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16"
-        ],
-        answer:2
-    },
-
-    {
-        category:"DEDUCTION",
-        question:"If no BEX are KOR, and all MIV are BEX, then:",
-        options:[
-            "Some MIV are KOR",
-            "No MIV are KOR",
-            "All KOR are MIV",
-            "All BEX are MIV",
-            "Some KOR are BEX",
-            "MIV and KOR are identical"
-        ],
-        answer:1
-    },
-
-    {
-        category:"ANALOGY",
-        question:"PUPPY is to DOG as CALF is to:",
-        options:[
-            "Goat",
-            "Horse",
-            "Cow",
-            "Sheep",
-            "Deer",
-            "Pig"
-        ],
-        answer:2
-    },
-
-    {
-        category:"VOCABULARY",
-        question:"AMBIGUOUS describes something that is:",
-        options:[
-            "Very clear",
-            "Open to more than one interpretation",
-            "Extremely loud",
-            "Already finished",
-            "Impossible",
-            "Highly expensive"
-        ],
-        answer:1
-    },
-
-    {
-        category:"NUMBER LOGIC",
-        question:"A machine makes 5 items in 4 minutes. At the same rate, how many items in 20 minutes?",
-        options:[
-            "20",
-            "24",
-            "25",
-            "30",
-            "40",
-            "45"
-        ],
-        answer:2
-    },
-
-    {
-        category:"ODD ONE OUT",
-        question:"Which does NOT belong with the others?",
-        options:[
-            "January",
-            "March",
-            "May",
-            "July",
-            "September",
-            "Tuesday"
+            "Triangle",
+            "Square",
+            "Circle",
+            "Rectangle",
+            "Pentagon",
+            "Cube"
         ],
         answer:5
     },
 
     {
-        category:"LOGIC",
-        question:"A is taller than B. B is taller than C. Which must be true?",
+        category:"CONDITIONAL LOGIC",
+        question:"If every ZOR is a MIP and no MIP is a LEX, which statement must be true?",
         options:[
-            "C is taller than A",
-            "A is taller than C",
-            "A and C are equal",
-            "B is shortest",
-            "C is tallest",
-            "Cannot know"
+            "Every ZOR is a LEX",
+            "No ZOR is a LEX",
+            "Every LEX is a ZOR",
+            "Some ZOR are LEX",
+            "Every MIP is a ZOR",
+            "No MIP exists"
         ],
         answer:1
     },
 
     {
-        category:"ANALOGY",
-        question:"DOCTOR is to HOSPITAL as TEACHER is to:",
+        category:"FIBONACCI REASONING",
+        question:"What number comes next? 1, 1, 2, 3, 5, 8, ?",
         options:[
-            "Book",
-            "Classroom",
-            "Student",
-            "Exam",
-            "School",
-            "Desk"
-        ],
-        answer:4
-    },
-
-    {
-        category:"SEQUENCE",
-        question:"What letter comes next? C, F, I, L, O, ?",
-        options:[
-            "P",
-            "Q",
-            "R",
-            "S",
-            "T",
-            "U"
-        ],
-        answer:2
-    },
-
-    {
-        category:"VOCABULARY",
-        question:"Which word best matches CONCISE?",
-        options:[
-            "Brief",
-            "Confusing",
-            "Detailed",
-            "Ancient",
-            "Angry",
-            "Flexible"
-        ],
-        answer:0
-    },
-
-    {
-        category:"LOGIC",
-        question:"Sara is ahead of Ali. Ali is ahead of Noor. Who cannot be first among these three?",
-        options:[
-            "Sara",
-            "Ali",
-            "Noor",
-            "Either Sara or Ali",
-            "Any of them",
-            "Cannot determine"
-        ],
-        answer:2
-    },
-
-    {
-        category:"NUMBER LOGIC",
-        question:"What is the missing number? 4, 9, 19, 39, 79, ?",
-        options:[
-            "119",
-            "139",
-            "149",
-            "159",
-            "169",
-            "179"
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15"
         ],
         answer:3
     },
 
     {
-        category:"ANALOGY",
+        category:"ANALOGICAL REASONING",
         question:"SEED is to TREE as EGG is to:",
         options:[
             "Nest",
@@ -1741,17 +1430,227 @@ const QUESTIONS = [
     },
 
     {
-        category:"VOCABULARY",
-        question:"INFER most nearly means:",
+        category:"ORDERING LOGIC",
+        question:"Sara is ahead of Ali. Ali is ahead of Noor. Who cannot be first?",
         options:[
-            "Ignore",
-            "Conclude from evidence",
-            "Copy exactly",
-            "Argue loudly",
-            "Memorize",
-            "Predict randomly"
+            "Sara",
+            "Ali",
+            "Noor",
+            "Sara or Ali",
+            "Any of them",
+            "Cannot determine"
+        ],
+        answer:2
+    },
+
+    {
+        category:"NUMBER SEQUENCE",
+        question:"What is the missing number? 4, 9, 19, 39, 79, ?",
+        options:[
+            "119",
+            "139",
+            "149",
+            "159",
+            "169",
+            "179"
+        ],
+        answer:3
+    },
+
+    {
+        category:"SYLLOGISTIC REASONING",
+        question:"All BEX are KOR. Some BEX are MIV. Which statement must be true?",
+        options:[
+            "Some MIV are KOR",
+            "All MIV are KOR",
+            "No MIV are KOR",
+            "All KOR are MIV",
+            "No BEX are MIV",
+            "Some KOR are not BEX"
+        ],
+        answer:0
+    },
+
+    {
+        category:"LETTER SEQUENCE",
+        question:"What comes next? AB, DE, GH, JK, ?",
+        options:[
+            "KL",
+            "LM",
+            "MN",
+            "NO",
+            "OP",
+            "PQ"
         ],
         answer:1
+    },
+
+    {
+        category:"NUMBER LOGIC",
+        question:"A machine makes 5 items in 4 minutes. At the same rate, how many items will it make in 20 minutes?",
+        options:[
+            "20",
+            "24",
+            "25",
+            "30",
+            "40",
+            "45"
+        ],
+        answer:2
+    },
+
+    {
+        category:"RELATIONAL REASONING",
+        question:"FINGER is to HAND as TOE is to:",
+        options:[
+            "Leg",
+            "Foot",
+            "Knee",
+            "Shoe",
+            "Ankle",
+            "Body"
+        ],
+        answer:1
+    },
+
+    {
+        category:"NUMBER PATTERN",
+        question:"What number comes next? 5, 10, 20, 40, 80, ?",
+        options:[
+            "100",
+            "120",
+            "140",
+            "150",
+            "160",
+            "180"
+        ],
+        answer:4
+    },
+
+    {
+        category:"LOGICAL ORDER",
+        question:"A is older than B. C is older than A. D is younger than B. Who is definitely the oldest?",
+        options:[
+            "A",
+            "B",
+            "C",
+            "D",
+            "A or C",
+            "Cannot determine"
+        ],
+        answer:2
+    },
+
+    {
+        category:"CONDITIONAL REASONING",
+        question:"If it rains, the ground becomes wet. The ground is not wet. What can logically be concluded?",
+        options:[
+            "It definitely rained",
+            "It definitely did not rain",
+            "It may or may not have rained",
+            "The ground must be dry forever",
+            "Rain causes dryness",
+            "Nothing can be concluded about the rule"
+        ],
+        answer:1
+    },
+
+    {
+        category:"ANALOGICAL REASONING",
+        question:"DOCTOR is to HOSPITAL as TEACHER is to:",
+        options:[
+            "Book",
+            "Classroom",
+            "Student",
+            "Exam",
+            "School",
+            "Desk"
+        ],
+        answer:4
+    },
+
+    {
+        category:"NUMBER RELATION",
+        question:"If 2 + 3 = 13, 3 + 4 = 25, and 4 + 5 = 41, then 5 + 6 = ?",
+        options:[
+            "51",
+            "55",
+            "61",
+            "71",
+            "81",
+            "91"
+        ],
+        answer:2
+    },
+
+    {
+        category:"CLASSIFICATION",
+        question:"Which pair has a relationship opposite to the relationship in HOT : COLD?",
+        options:[
+            "UP : DOWN",
+            "FAST : QUICK",
+            "BIG : LARGE",
+            "EARLY : LATE",
+            "OPEN : CLOSE",
+            "LIGHT : DARK"
+        ],
+        answer:2
+    },
+
+    {
+        category:"SEQUENCE REASONING",
+        question:"What comes next? 100, 90, 81, 73, 66, ?",
+        options:[
+            "58",
+            "59",
+            "60",
+            "61",
+            "62",
+            "63"
+        ],
+        answer:2
+    },
+
+    {
+        category:"SYLLOGISTIC REASONING",
+        question:"No pilots are singers. Some singers are writers. Which statement must be true?",
+        options:[
+            "Some pilots are writers",
+            "No singers are pilots",
+            "All writers are singers",
+            "No writers are pilots",
+            "All pilots are writers",
+            "Some pilots are singers"
+        ],
+        answer:1
+    },
+
+    {
+        category:"LETTER LOGIC",
+        question:"If A=1, B=2, C=3 and so on, what is the total value of the letters in CAB?",
+        options:[
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+        ],
+        answer:2
+    },
+
+    {
+        category:"NUMBER SEQUENCE",
+        question:"What number should replace the question mark? 8, 13, 23, 43, 83, ?",
+        options:[
+            "123",
+            "143",
+            "153",
+            "163",
+            "173",
+            "183"
+        ],
+        answer:3
     }
 
 ];
@@ -1772,6 +1671,24 @@ let timerInterval = null;
 let remainingSeconds = 25 * 60;
 
 let soundEnabled = true;
+
+let testFinished = false;
+
+
+/* ============================================================
+   ATTEMPT COUNT
+============================================================ */
+
+let attemptCount = Number(
+    localStorage.getItem(
+        "mindEmeraldAttempts"
+    ) || 0
+);
+
+
+/* ============================================================
+   AUDIO
+============================================================ */
 
 let audioContext = null;
 
@@ -1821,6 +1738,9 @@ const progressBar =
 
 const timer =
     document.getElementById("timer");
+
+const attemptResult =
+    document.getElementById("attemptResult");
 
 const resultHeading =
     document.getElementById("resultHeading");
@@ -1876,7 +1796,7 @@ function showScreen(screen){
 
 
 /* ============================================================
-   SOUND
+   SOUND EFFECT
 ============================================================ */
 
 function playSound(
@@ -1906,6 +1826,14 @@ function playSound(
 
         }
 
+        if(
+            audioContext.state ===
+            "suspended"
+        ){
+
+            audioContext.resume();
+
+        }
 
         const oscillator =
             audioContext.createOscillator();
@@ -1913,32 +1841,27 @@ function playSound(
         const gain =
             audioContext.createGain();
 
-
         oscillator.type =
             type;
 
         oscillator.frequency.value =
             frequency;
 
-
         gain.gain.setValueAtTime(
             0.045,
             audioContext.currentTime
         );
-
 
         gain.gain.exponentialRampToValueAtTime(
             0.001,
             audioContext.currentTime + duration
         );
 
-
         oscillator.connect(gain);
 
         gain.connect(
             audioContext.destination
         );
-
 
         oscillator.start();
 
@@ -1959,7 +1882,7 @@ function playSound(
 
 
 /* ============================================================
-   RIPPLE EFFECT
+   WATER RIPPLE CLICK EFFECT
 ============================================================ */
 
 function createRipple(x,y){
@@ -1980,11 +1903,12 @@ function createRipple(x,y){
         ripple
     );
 
-
     setTimeout(
         function(){
 
-            if(ripple.parentNode){
+            if(
+                ripple.parentNode
+            ){
 
                 ripple.parentNode.removeChild(
                     ripple
@@ -2013,7 +1937,7 @@ document.addEventListener(
 
 
 /* ============================================================
-   FORMAT TIME
+   TIME FORMATTER
 ============================================================ */
 
 function formatTime(totalSeconds){
@@ -2025,7 +1949,6 @@ function formatTime(totalSeconds){
 
     const seconds =
         totalSeconds % 60;
-
 
     return (
         String(minutes).padStart(2,"0")
@@ -2039,7 +1962,7 @@ function formatTime(totalSeconds){
 
 
 /* ============================================================
-   UPDATE TIMER DISPLAY
+   TIMER DISPLAY
 ============================================================ */
 
 function updateTimerDisplay(){
@@ -2048,7 +1971,6 @@ function updateTimerDisplay(){
         formatTime(
             remainingSeconds
         );
-
 
     if(
         remainingSeconds <= 60
@@ -2070,10 +1992,18 @@ function updateTimerDisplay(){
 
 
 /* ============================================================
-   TIMER TICK
+   TIMER
 ============================================================ */
 
 function timerTick(){
+
+    if(
+        testFinished
+    ){
+
+        return;
+
+    }
 
     if(
         remainingSeconds <= 0
@@ -2089,7 +2019,6 @@ function timerTick(){
 
     }
 
-
     remainingSeconds--;
 
     updateTimerDisplay();
@@ -2097,23 +2026,16 @@ function timerTick(){
 }
 
 
-/* ============================================================
-   START TIMER
-============================================================ */
-
 function startTimer(){
 
     clearInterval(
         timerInterval
     );
 
-
     remainingSeconds =
         25 * 60;
 
-
     updateTimerDisplay();
-
 
     timerInterval =
         setInterval(
@@ -2123,10 +2045,6 @@ function startTimer(){
 
 }
 
-
-/* ============================================================
-   STOP TIMER
-============================================================ */
 
 function stopTimer(){
 
@@ -2145,6 +2063,17 @@ function stopTimer(){
 
 function startTest(){
 
+    /*
+       Every actual new test receives a new attempt number.
+    */
+
+    attemptCount++;
+
+    localStorage.setItem(
+        "mindEmeraldAttempts",
+        String(attemptCount)
+    );
+
     currentQuestion = 0;
 
     selectedAnswers =
@@ -2152,21 +2081,18 @@ function startTest(){
             QUESTIONS.length
         ).fill(null);
 
-
     testStartedAt =
         Date.now();
 
+    testFinished = false;
 
     showScreen(
         quizScreen
     );
 
-
     startTimer();
 
-
     renderQuestion();
-
 
     playSound(
         720,
@@ -2186,14 +2112,11 @@ function renderQuestion(){
     const question =
         QUESTIONS[currentQuestion];
 
-
     questionCategory.textContent =
         question.category;
 
-
     questionText.textContent =
         question.question;
-
 
     progressLabel.textContent =
         "Question "
@@ -2204,7 +2127,6 @@ function renderQuestion(){
         +
         QUESTIONS.length;
 
-
     const percentage =
         (
             (currentQuestion + 1)
@@ -2212,14 +2134,11 @@ function renderQuestion(){
             QUESTIONS.length
         ) * 100;
 
-
     progressBar.style.width =
         percentage + "%";
 
-
     optionsContainer.innerHTML =
         "";
-
 
     question.options.forEach(
         function(optionText,index){
@@ -2229,28 +2148,22 @@ function renderQuestion(){
                     "button"
                 );
 
-
             optionButton.type =
                 "button";
-
 
             optionButton.className =
                 "option";
 
-
             /*
-               IMPORTANT:
-
-               This class only restores the
-               student's selected option.
-
-               It NEVER checks the answer.
+               Only the user's selection is restored.
+               The correct answer is NEVER revealed
+               during the test.
             */
 
             if(
-                selectedAnswers[currentQuestion]
-                ===
-                index
+                selectedAnswers[
+                    currentQuestion
+                ] === index
             ){
 
                 optionButton.classList.add(
@@ -2259,32 +2172,26 @@ function renderQuestion(){
 
             }
 
-
             const letter =
                 document.createElement(
                     "span"
                 );
 
-
             letter.className =
                 "option-letter";
-
 
             letter.textContent =
                 String.fromCharCode(
                     65 + index
                 );
 
-
             const text =
                 document.createElement(
                     "span"
                 );
 
-
             text.textContent =
                 optionText;
-
 
             optionButton.appendChild(
                 letter
@@ -2294,33 +2201,28 @@ function renderQuestion(){
                 text
             );
 
-
             optionButton.addEventListener(
                 "click",
                 function(){
 
                     /*
-                       ONLY SAVE USER'S SELECTION.
-
-                       NO CORRECTNESS CHECK HERE.
+                       IMPORTANT:
+                       No correct/wrong comparison here.
                     */
 
                     selectedAnswers[
                         currentQuestion
                     ] = index;
 
-
                     playSound(
                         620,
                         .05
                     );
 
-
                     renderQuestion();
 
                 }
             );
-
 
             optionsContainer.appendChild(
                 optionButton
@@ -2329,12 +2231,10 @@ function renderQuestion(){
         }
     );
 
-
     previousButton.style.visibility =
         currentQuestion === 0
             ? "hidden"
             : "visible";
-
 
     if(
         currentQuestion ===
@@ -2360,16 +2260,10 @@ function renderQuestion(){
 
 function goNext(){
 
-    /*
-       Do not reveal correctness.
-       Only make sure the student has selected
-       an option before moving forward.
-    */
-
     if(
-        selectedAnswers[currentQuestion]
-        ===
-        null
+        selectedAnswers[
+            currentQuestion
+        ] === null
     ){
 
         playSound(
@@ -2382,10 +2276,8 @@ function goNext(){
 
     }
 
-
     if(
-        currentQuestion
-        ===
+        currentQuestion ===
         QUESTIONS.length - 1
     ){
 
@@ -2395,15 +2287,12 @@ function goNext(){
 
     }
 
-
     currentQuestion++;
-
 
     playSound(
         720,
         .05
     );
-
 
     renderQuestion();
 
@@ -2424,15 +2313,12 @@ function goPrevious(){
 
     }
 
-
     currentQuestion--;
-
 
     playSound(
         430,
         .05
     );
-
 
     renderQuestion();
 
@@ -2440,7 +2326,7 @@ function goPrevious(){
 
 
 /* ============================================================
-   CALCULATE IQ ESTIMATE
+   IQ ESTIMATE
 ============================================================ */
 
 function calculateIQ(
@@ -2448,16 +2334,14 @@ function calculateIQ(
     total
 ){
 
+    /*
+       Game-based estimate only.
+       It is deliberately labelled as an estimate
+       and should not be treated as a standardized IQ.
+    */
+
     const accuracy =
         correct / total;
-
-
-    /*
-       Educational game estimate.
-
-       Minimum = 75
-       Maximum = 140
-    */
 
     let iq =
         Math.round(
@@ -2467,16 +2351,21 @@ function calculateIQ(
             )
         );
 
+    if(
+        iq < 75
+    ){
 
-    if(iq < 75){
         iq = 75;
+
     }
 
+    if(
+        iq > 140
+    ){
 
-    if(iq > 140){
         iq = 140;
-    }
 
+    }
 
     return iq;
 
@@ -2489,40 +2378,45 @@ function calculateIQ(
 
 function getIQLevel(iq){
 
-    if(iq >= 130){
+    if(
+        iq >= 130
+    ){
 
         return "Exceptional";
 
     }
 
-
-    if(iq >= 120){
+    if(
+        iq >= 120
+    ){
 
         return "Very High";
 
     }
 
-
-    if(iq >= 110){
+    if(
+        iq >= 110
+    ){
 
         return "High";
 
     }
 
-
-    if(iq >= 90){
+    if(
+        iq >= 90
+    ){
 
         return "Average";
 
     }
 
-
-    if(iq >= 80){
+    if(
+        iq >= 80
+    ){
 
         return "Developing";
 
     }
-
 
     return "Needs Practice";
 
@@ -2530,28 +2424,71 @@ function getIQLevel(iq){
 
 
 /* ============================================================
-   FINAL TEST CALCULATION
+   RESULT MESSAGE
+============================================================ */
 
-   THIS IS THE ONLY FUNCTION WHERE THE CORRECT
-   ANSWER IS COMPARED.
+function getPerformanceMessage(
+    iq,
+    accuracy
+){
 
-   Therefore:
+    if(
+        accuracy >= 90
+    ){
 
-   DURING TEST:
-   NO RIGHT / WRONG INFORMATION.
+        return "Outstanding reasoning performance. Your answers show strong pattern recognition, deduction and logical problem-solving ability.";
 
-   AFTER TEST:
-   FULL RESULT.
+    }
+
+    if(
+        accuracy >= 75
+    ){
+
+        return "Strong reasoning performance. You demonstrated good logical deduction and pattern-recognition skills.";
+
+    }
+
+    if(
+        accuracy >= 60
+    ){
+
+        return "Good attempt. Your reasoning foundation is developing, with room to improve speed and consistency.";
+
+    }
+
+    if(
+        accuracy >= 40
+    ){
+
+        return "Your result shows developing reasoning ability. More practice with sequences, deductions and logical relationships can improve performance.";
+
+    }
+
+    return "This attempt provides a starting point. Practice logical patterns, ordering and deduction problems before attempting the challenge again.";
+
+}
+
+
+/* ============================================================
+   FINISH TEST
 ============================================================ */
 
 function finishTest(){
 
-    stopTimer();
+    if(
+        testFinished
+    ){
 
+        return;
+
+    }
+
+    testFinished = true;
+
+    stopTimer();
 
     const endTime =
         Date.now();
-
 
     let elapsedSeconds =
         Math.round(
@@ -2561,7 +2498,6 @@ function finishTest(){
             ) / 1000
         );
 
-
     if(
         elapsedSeconds < 0
     ){
@@ -2569,7 +2505,6 @@ function finishTest(){
         elapsedSeconds = 0;
 
     }
-
 
     if(
         elapsedSeconds >
@@ -2583,11 +2518,10 @@ function finishTest(){
 
 
     /*
-       NOW calculate correct answers.
+       CORRECTNESS IS CHECKED ONLY NOW.
     */
 
     let correct = 0;
-
 
     for(
         let i = 0;
@@ -2607,14 +2541,11 @@ function finishTest(){
 
     }
 
-
     const total =
         QUESTIONS.length;
 
-
     const wrong =
         total - correct;
-
 
     const accuracy =
         Math.round(
@@ -2624,13 +2555,11 @@ function finishTest(){
             ) * 100
         );
 
-
     const iq =
         calculateIQ(
             correct,
             total
         );
-
 
     const level =
         getIQLevel(
@@ -2639,43 +2568,44 @@ function finishTest(){
 
 
     /*
-       RESULT HEADING
+       ATTEMPT NUMBER
+    */
+
+    attemptResult.textContent =
+        "#" + attemptCount;
+
+
+    /*
+       RESULT DATA
     */
 
     resultHeading.textContent =
         level + " Performance";
 
-
     iqResult.textContent =
         "Estimated IQ: " + iq;
 
-
     accuracyResult.textContent =
         accuracy + "%";
-
 
     correctResult.textContent =
         correct +
         " / " +
         total;
 
-
     wrongResult.textContent =
         String(wrong);
-
 
     timeResult.textContent =
         formatTime(
             elapsedSeconds
         );
 
-
     const average =
         (
             elapsedSeconds /
             total
         ).toFixed(1);
-
 
     averageResult.textContent =
         average + "s";
@@ -2694,7 +2624,7 @@ function finishTest(){
 
 
     /*
-       CATEGORY BREAKDOWN
+       CATEGORY STATISTICS
     */
 
     const categoryStats = {};
@@ -2706,23 +2636,24 @@ function finishTest(){
             const category =
                 question.category;
 
-
             if(
-                !categoryStats[category]
+                !categoryStats[
+                    category
+                ]
             ){
 
-                categoryStats[category] = {
+                categoryStats[
+                    category
+                ] = {
                     correct:0,
                     total:0
                 };
 
             }
 
-
             categoryStats[
                 category
             ].total++;
-
 
             if(
                 selectedAnswers[index]
@@ -2754,7 +2685,6 @@ function finishTest(){
                     category
                 ];
 
-
             const percentage =
                 Math.round(
                     (
@@ -2763,65 +2693,52 @@ function finishTest(){
                     ) * 100
                 );
 
-
             const row =
                 document.createElement(
                     "div"
                 );
 
-
             row.className =
                 "breakdown-row";
-
 
             const name =
                 document.createElement(
                     "span"
                 );
 
-
             name.textContent =
                 category;
-
 
             const bar =
                 document.createElement(
                     "div"
                 );
 
-
             bar.className =
                 "breakdown-bar";
-
 
             const fill =
                 document.createElement(
                     "div"
                 );
 
-
             fill.className =
                 "breakdown-fill";
 
-
             fill.style.width =
                 percentage + "%";
-
 
             const number =
                 document.createElement(
                     "b"
                 );
 
-
             number.textContent =
                 percentage + "%";
-
 
             bar.appendChild(
                 fill
             );
-
 
             row.appendChild(
                 name
@@ -2835,7 +2752,6 @@ function finishTest(){
                 number
             );
 
-
             breakdownContainer.appendChild(
                 row
             );
@@ -2845,35 +2761,44 @@ function finishTest(){
 
 
     /*
-       RESULT MESSAGE
+       FINAL MESSAGE
     */
 
     resultMessage.textContent =
-        "You completed "
+        "Attempt #"
         +
-        total
+        attemptCount
         +
-        " verbal reasoning questions in "
-        +
-        formatTime(elapsedSeconds)
-        +
-        ". You answered "
+        " completed. You answered "
         +
         correct
         +
-        " correctly and "
+        " of "
         +
-        wrong
+        total
         +
-        " incorrectly. Your estimated IQ is "
+        " questions correctly in "
+        +
+        formatTime(
+            elapsedSeconds
+        )
+        +
+        ". Your estimated IQ is "
         +
         iq
         +
-        ". This is a game-based estimate, not a standardized clinical IQ score.";
+        ". "
+        +
+        getPerformanceMessage(
+            iq,
+            accuracy
+        )
+        +
+        " This is a game-based estimate, not a standardized clinical IQ score.";
 
 
     /*
-       SHOW RESULT ONLY NOW.
+       RESULT SCREEN APPEARS ONLY NOW.
     */
 
     showScreen(
@@ -2882,7 +2807,7 @@ function finishTest(){
 
 
     /*
-       SUCCESS SOUND
+       RESULT SOUND
     */
 
     playSound(
@@ -2890,7 +2815,6 @@ function finishTest(){
         .12,
         "triangle"
     );
-
 
     setTimeout(
         function(){
@@ -2953,7 +2877,7 @@ retakeButton.addEventListener(
 
 
 /* ============================================================
-   SOUND BUTTON
+   SOUND TOGGLE
 ============================================================ */
 
 soundButton.addEventListener(
@@ -2963,12 +2887,12 @@ soundButton.addEventListener(
         soundEnabled =
             !soundEnabled;
 
-
-        if(soundEnabled){
+        if(
+            soundEnabled
+        ){
 
             soundButton.textContent =
                 "🔊 Sound ON";
-
 
             playSound(
                 600,
@@ -2987,7 +2911,7 @@ soundButton.addEventListener(
 
 
 /* ============================================================
-   INITIAL STATE
+   INITIALIZATION
 ============================================================ */
 
 showScreen(
@@ -2997,4 +2921,4 @@ showScreen(
 </script>
 
 </body>
-  </html>
+    </html>
